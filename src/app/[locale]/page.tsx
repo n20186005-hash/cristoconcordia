@@ -419,7 +419,7 @@ function Visiting() {
             <div className="bring-title">{t.visiting.tips.title}</div>
             <ul className="bring-list">
               {t.visiting.tips.items.map((item: string, i: number) => (
-                <li key={i}>{item}</li>
+                <li key={i}>{renderText(item)}</li>
               ))}
             </ul>
           </div>
