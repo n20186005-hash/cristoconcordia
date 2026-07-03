@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Valle de la Luna Travel Guide",
-  description: "Terms of service for Valle de la Luna Travel Guide",
+  title: "Terms of Service | Christ of the Concord Monument Travel Guide",
+  description: "Terms of service for Christ of the Concord Monument Travel Guide",
 };
 
 export default function TermsPage() {

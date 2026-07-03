@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CookiesClient from "./CookiesClient";
 
 export const metadata: Metadata = {
-  title: "Cookie Settings | Valle de la Luna Travel Guide",
+  title: "Cookie Settings | Christ of the Concord Monument Travel Guide",
   description: "Manage your cookie preferences",
 };
 

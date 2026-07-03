@@ -98,7 +98,7 @@ function Nav() {
     <nav className={`site-nav ${scrolled ? "scrolled" : ""}`}>
       <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
         <span style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 700, color: "#fff" }}>
-          Valle de la Luna
+          Cristo de la Concordia
         </span>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
@@ -121,7 +121,7 @@ function Nav() {
 }
 
 function Hero() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
   return (
     <section className="hero">
       <div className="hero-bg" />
@@ -138,6 +138,29 @@ function Hero() {
             </span>
           ))}
         </div>
+        
+        <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", background: "rgba(0,0,0,0.4)", backdropFilter: "blur(8px)", padding: "1rem 2rem", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.2)", margin: "2rem auto", flexWrap: "wrap", maxWidth: "800px" }}>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ color: "var(--color-gold)", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px" }}>{locale === "zh" ? "绝对海拔" : locale === "es" ? "Altitud" : "Altitude"}</div>
+            <div style={{ color: "#fff", fontSize: "1.2rem", fontWeight: 700 }}>2,840 m</div>
+          </div>
+          <div style={{ width: "1px", background: "rgba(255,255,255,0.2)" }} />
+          <div style={{ textAlign: "center" }}>
+            <div style={{ color: "var(--color-gold)", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px" }}>{locale === "zh" ? "相对高度" : locale === "es" ? "Altura Relativa" : "Relative Height"}</div>
+            <div style={{ color: "#fff", fontSize: "1.2rem", fontWeight: 700 }}>265 m</div>
+          </div>
+          <div style={{ width: "1px", background: "rgba(255,255,255,0.2)" }} />
+          <div style={{ textAlign: "center" }}>
+            <div style={{ color: "var(--color-gold)", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px" }}>{locale === "zh" ? "雕像总高" : locale === "es" ? "Altura Total" : "Total Height"}</div>
+            <div style={{ color: "#fff", fontSize: "1.2rem", fontWeight: 700 }}>40.44 m</div>
+          </div>
+          <div style={{ width: "1px", background: "rgba(255,255,255,0.2)" }} />
+          <div style={{ textAlign: "center" }}>
+            <div style={{ color: "var(--color-gold)", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "1px" }}>{locale === "zh" ? "Plus Code 坐标" : locale === "es" ? "Coordenadas" : "Coordinates"}</div>
+            <div style={{ color: "#fff", fontSize: "1.2rem", fontWeight: 700 }}>JV88+72C</div>
+          </div>
+        </div>
+
         <a href="#history" className="hero-cta">
           {t.hero.cta}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -296,17 +319,58 @@ function TimeSpaceContrast() {
       <ScrollReveal>
         <p className="about-text" style={{ whiteSpace: "pre-line", marginBottom: "3rem" }}>{renderText(t.contrast.intro)}</p>
       </ScrollReveal>
+
+      {/* Historical Timeline */}
+      <ScrollReveal>
+        <div style={{ marginBottom: "4rem", position: "relative" }}>
+          <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: "2px", background: "var(--color-gold)", transform: "translateX(-50%)", opacity: 0.3 }} className="timeline-line" />
+          
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", position: "relative" }}>
+            <div style={{ width: "45%", textAlign: "right", paddingRight: "2rem" }}>
+              <h4 style={{ color: "var(--color-gold)", fontSize: "1.2rem", fontWeight: 700, margin: "0 0 0.5rem" }}>1987</h4>
+              <p style={{ color: "var(--color-deep)", fontWeight: 600, margin: 0 }}>动工建造 (Construction Began)</p>
+            </div>
+            <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "var(--color-gold)", position: "absolute", left: "50%", transform: "translateX(-50%)", border: "4px solid var(--color-cream)" }} />
+            <div style={{ width: "45%", paddingLeft: "2rem" }}>
+              <p style={{ color: "var(--color-earth-soft)", fontSize: "0.9rem", margin: 0 }}>为纪念教皇即将来访，当地社区开始筹建这座巨大的纪念碑。</p>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", position: "relative" }}>
+            <div style={{ width: "45%", textAlign: "right", paddingRight: "2rem" }}>
+              <p style={{ color: "var(--color-earth-soft)", fontSize: "0.9rem", margin: 0 }}>教皇若望·保禄二世访问科恰班巴，为纪念碑的建设带来了极大的精神鼓舞。</p>
+            </div>
+            <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "var(--color-gold)", position: "absolute", left: "50%", transform: "translateX(-50%)", border: "4px solid var(--color-cream)" }} />
+            <div style={{ width: "45%", paddingLeft: "2rem" }}>
+              <h4 style={{ color: "var(--color-gold)", fontSize: "1.2rem", fontWeight: 700, margin: "0 0 0.5rem" }}>1988</h4>
+              <p style={{ color: "var(--color-deep)", fontWeight: 600, margin: 0 }}>教皇访问 (Pope's Visit)</p>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative" }}>
+            <div style={{ width: "45%", textAlign: "right", paddingRight: "2rem" }}>
+              <h4 style={{ color: "var(--color-gold)", fontSize: "1.2rem", fontWeight: 700, margin: "0 0 0.5rem" }}>1994</h4>
+              <p style={{ color: "var(--color-deep)", fontWeight: 600, margin: 0 }}>正式完工 (Completion)</p>
+            </div>
+            <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "var(--color-gold)", position: "absolute", left: "50%", transform: "translateX(-50%)", border: "4px solid var(--color-cream)" }} />
+            <div style={{ width: "45%", paddingLeft: "2rem" }}>
+              <p style={{ color: "var(--color-earth-soft)", fontSize: "0.9rem", margin: 0 }}>历时7年，由César和Wálter Terrazas Pardo兄弟设计的雕塑终于落成。</p>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
       <ScrollReveal>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
           <div>
             <div style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.1)", marginBottom: "1rem" }}>
-              <img src="/gallery/valle-de-la-luna (2).jpg" alt="Valle de la Luna view" style={{ width: "100%", height: "auto", display: "block", filter: "grayscale(100%) sepia(20%)" }} />
+              <img src="/gallery/christ-of-the-concord-monument (2).jpg" alt="Construction view" style={{ width: "100%", height: "auto", display: "block", filter: "grayscale(100%) sepia(20%)" }} />
             </div>
             <p style={{ textAlign: "center", fontSize: "0.95rem", color: "var(--color-earth-soft)", fontWeight: 600 }}>{t.contrast.before}</p>
           </div>
           <div>
             <div style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.1)", marginBottom: "1rem" }}>
-              <img src="/gallery/valle-de-la-luna (1).jpg" alt="Valle de la Luna Today" style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/gallery/christ-of-the-concord-monument (1).jpg" alt="Today" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
             <p style={{ textAlign: "center", fontSize: "0.95rem", color: "var(--color-earth-soft)", fontWeight: 600 }}>{t.contrast.after}</p>
           </div>
@@ -417,11 +481,11 @@ function Transportation() {
                 <p style={{ whiteSpace: "pre-line", marginBottom: "1.5rem" }}>{renderText(sec.content)}</p>
                 
                 {sec.options && sec.options.length > 0 && (
-                  <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
                     {sec.options.map((opt: any, j: number) => (
-                      <div key={j} style={{ padding: "1.25rem", background: "rgba(0,0,0,0.03)", borderRadius: "6px" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
-                          <strong style={{ color: "var(--color-deep)", fontSize: "1.05rem" }}>{opt.name}</strong>
+                      <div key={j} style={{ padding: "1.5rem", background: "#fff", borderRadius: "10px", border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 12px rgba(0,0,0,0.03)", display: "flex", flexDirection: "column" }}>
+                        <div style={{ marginBottom: "0.75rem" }}>
+                          <strong style={{ color: "var(--color-deep)", fontSize: "1.1rem" }}>{opt.name}</strong>
                         </div>
                         {(opt.price || opt.time) && (
                           <div style={{ fontSize: "0.9rem", color: "var(--color-earth-soft)", display: "flex", gap: "1rem", marginBottom: "1rem" }}>
@@ -430,12 +494,12 @@ function Transportation() {
                           </div>
                         )}
                         {opt.description && (
-                          <p style={{ fontSize: "0.9rem", color: "var(--color-earth-soft)", marginBottom: "0.5rem" }}>{renderText(opt.description)}</p>
+                          <p style={{ fontSize: "0.95rem", color: "var(--color-earth)", marginBottom: "1rem", flexGrow: 1 }}>{renderText(opt.description)}</p>
                         )}
                         {opt.steps && opt.steps.length > 0 && (
-                          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", background: "rgba(0,0,0,0.02)", padding: "1rem", borderRadius: "8px" }}>
                             {opt.steps.map((step: string, k: number) => (
-                              <div key={k} style={{ fontSize: "0.9rem", color: "var(--color-earth-soft)", lineHeight: "1.5" }}>
+                              <div key={k} style={{ fontSize: "0.85rem", color: "var(--color-earth-soft)", lineHeight: "1.5" }}>
                                 • {renderText(step)}
                               </div>
                             ))}

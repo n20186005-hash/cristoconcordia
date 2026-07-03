@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Valle de la Luna Travel Guide",
-  description: "Privacy policy for Valle de la Luna Travel Guide",
+  title: "Privacy Policy | Christ of the Concord Monument Travel Guide",
+  description: "Privacy policy for Christ of the Concord Monument Travel Guide",
 };
 
 export default function PrivacyPage() {

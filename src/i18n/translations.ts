@@ -28,11 +28,11 @@ export const translations: Record<Locale, Translations> = {
     rating: { reviews: "条评价", source: "Google 评论" },
     history: {
       title: "历史背景与建造",
-      intro: `和谐基督纪念碑（Monumento al Cristo de la Concordia）位于玻利维亚科恰班巴市，是一座象征和平与团结的宏伟宗教雕塑。\n\n**建造历史**：这座纪念碑建于20世纪末，旨在传达和平、团结与和谐的信息。雕塑栩栩如生地描绘了基督张开双臂的姿态，象征着对全人类的拥抱与祝福。\n\n**文化意义**：作为科恰班巴的重要宗教和文化地标，和谐基督纪念碑不仅吸引了众多信徒前来朝圣，也成为游客了解玻利维亚宗教艺术和文化的重要窗口。`
+      intro: `和谐基督纪念碑（Monumento al Cristo de la Concordia）位于玻利维亚科恰班巴市，是一座象征和平与团结的宏伟宗教雕塑。\n\n**建造历史与渊源**：这座纪念碑是为了纪念教皇若望·保禄二世（Pope John Paul II）于1988年访问科恰班巴而提议建造的，由当地雕塑家 César 和 Wálter Terrazas Pardo 兄弟设计，最终于1994年完工。雕塑栩栩如生地描绘了基督张开双臂的姿态，象征着对全人类的拥抱与祝福。\n\n**世界级的尺寸记录**：这座雕像不仅是玻利维亚的骄傲，更是南半球最大的基督雕像之一。它的雕像主体高 34.20米，加上基座总高达到 40.44米，这使得它比著名的巴西里约热内卢基督像（Cristo Redentor）还要高出几米。\n\n**文化意义**：作为科恰班巴的重要宗教和文化地标，和谐基督纪念碑不仅吸引了众多信徒前来朝圣，也成为游客了解玻利维亚宗教艺术和文化的重要窗口。`
     },
     curiosities: {
       title: "隐藏的故事：艺术价值与象征意义",
-      content: `**艺术风格**：和谐基督纪念碑采用了写实主义雕塑风格，基督的形象庄重而慈祥，细节刻画精致，展现出高超的雕塑艺术水平。\n\n**象征意义**：纪念碑的名称"Concordia"（和谐）体现了其核心价值——促进不同文化、信仰人群之间的理解、尊重与和谐共处。张开双臂的基督形象，传递出包容与博爱的普世价值。\n\n**参观礼仪**：作为宗教场所，请游客保持庄重和安静。尊重当地的宗教习俗，穿着得体，避免大声喧哗。`
+      content: `**内部探索的冷知识**：你可能不知道，雕像内部其实是中空的！游客可以攀登内部的 1,399级螺旋阶梯，一直到达基督手臂内部的观景台，通过瞭望孔俯瞰整个科恰班巴谷地的壮丽景色。\n\n**艺术风格**：和谐基督纪念碑采用了写实主义雕塑风格，基督的形象庄重而慈祥，细节刻画精致，展现出高超的雕塑艺术水平。\n\n**象征意义**：纪念碑的名称"Concordia"（和谐）体现了其核心价值——促进不同文化、信仰人群之间的理解、尊重与和谐共处。张开双臂的基督形象，传递出包容与博爱的普世价值。\n\n**参观礼仪**：作为宗教场所，请游客保持庄重和安静。尊重当地的宗教习俗，穿着得体，避免大声喧哗。`
     },
     architecture: {
       title: "雕塑特色与艺术结构",
@@ -65,8 +65,8 @@ export const translations: Record<Locale, Translations> = {
     contrast: {
       title: "穿越时空的和平象征",
       intro: "和谐基督纪念碑虽然建成时间相对较短，但它已经成为科恰班巴乃至整个玻利维亚的重要文化符号。通过不同时期的照片对比，我们可以感受到这座纪念碑在城市发展中的重要性。",
-      before: "建造中的纪念碑",
-      after: "今日的 和谐基督纪念碑"
+      before: "Cerro San Pedro 景观 (1980s)",
+      after: "今日的 圣佩德罗山与纪念碑"
     },
     visiting: {
       title: "实用游览指南",
@@ -90,27 +90,44 @@ export const translations: Record<Locale, Translations> = {
         { name: "出租车/网约车（推荐）", price: "约 20-40 玻利维亚诺", time: "15-25 分钟", steps: ["在机场到达大厅外寻找官方出租车柜台或使用 Uber/inDrive 等网约车软件", "告知司机前往 Cristo de la Concordia（和谐基督纪念碑）", "科恰班巴交通相对便利，车程较短"] }
       ]},
       publicTransport: {
-        title: "🚌 公共交通",
-        content: "从科恰班巴市中心前往和谐基督纪念碑可以乘坐公共交通。",
+        title: "🚌 公共交通与缆车",
+        content: "从科恰班巴市中心前往圣佩德罗山顶（Cerro San Pedro）有以下几种主要方式：",
         options: [
           {
-            name: "小巴/公交 (Minibus)",
-            description: "从市中心乘坐前往纪念碑附近的小巴，下车后步行到达。",
+            name: "🚡 缆车 (Teleférico) - 推荐 & 最安全",
+            description: "乘坐缆车直达山顶是90%以上游客的首选，既安全又能俯瞰全城。",
             steps: [
-              "从市中心找到前往 Av. de la Concordia 方向的小巴",
-              "告知司机在 Cristo de la Concordia 附近停车",
-              "下车后步行约 5-10 分钟到达纪念碑"
+              "前往位于 Parque de la Autonomía 的缆车起点站",
+              "购买往返票（约 10-15 玻利维亚诺）",
+              "享受约 5-10 分钟的空中全景之旅，直达纪念碑下方"
+            ]
+          },
+          {
+            name: "🚕 出租车/网约车",
+            description: "如果您不想乘坐缆车，可以直接打车前往山顶的停车场。",
+            steps: [
+              "使用 Uber 或 inDrive 叫车",
+              "直接定位到 Cristo de la Concordia 停车场",
+              "车程约 15-20 分钟"
+            ]
+          },
+          {
+            name: "⚠️ 步行台阶 - 需注意治安",
+            description: "有一条拥有 2000 多级台阶的步道通往山顶。但出于安全考虑，非常不建议游客单独步行爬山，沿途曾发生针对游客的抢劫事件。",
+            steps: [
+              "不推荐选择此方式",
+              "如必须步行，请务必在周末人多时，结伴而行，并避免携带贵重物品"
             ]
           }
         ]
       },
-      city: { title: "🚶 从科恰班巴市中心出发", content: "和谐基督纪念碑位于科恰班巴市内，从市中心出发可以选择多种交通方式。建议预留半天时间，将纪念碑与附近景点一并游览。", steps: ["从市中心乘坐出租车约 10-20 分钟，费用约 15-30 玻利维亚诺", "或乘坐小巴到 Av. de la Concordia 方向，费用更经济", "到达后步行进入纪念碑广场"] },
+      city: { title: "🚶 从科恰班巴市中心出发", content: "和谐基督纪念碑位于科恰班巴市内，从市中心出发建议优先选择缆车（Teleférico）。建议预留半天时间，将纪念碑与附近景点一并游览。", steps: ["从市中心前往缆车站（Parque de la Autonomía）", "乘坐缆车登顶，安全又快捷", "到达后步行进入纪念碑广场"] },
       tips: { title: "交通与气候小贴士", items: [
         "🌡️ **气候优势**：科恰班巴海拔约 2500 米，气候温暖宜人，被称为'永恒春城'，是玻利维亚气候最舒适的城市之一",
         "市区内建议使用打车软件（Uber/inDrive）更安全便捷",
+        "强烈推荐乘坐缆车上山，风景极佳且最安全",
         "参观时间建议安排在清晨或傍晚，避开中午的炎热",
-        "可与科恰班巴市中心、圣安东尼奥教堂等景点安排在同一行程",
-        "科恰班巴的交通相对不那么拥堵，出行较为便利"
+        "可与科恰班巴市中心、拉坎查市场等景点安排在同一行程"
       ] }
     },
     reviews: { 
@@ -120,9 +137,9 @@ export const translations: Record<Locale, Translations> = {
       nearbyTitle: "周边值得一游的景点",
       nearbyIntro: "参观完和谐基督纪念碑后，您可以顺道游览以下附近景点：",
       nearbyItems: [
-        { name: "科恰班巴市中心 (Centro de Cochabamba)", description: "玻利维亚的宪法首都，拥有历史悠久的教堂、广场和市场，以及美味的地方美食。" },
+        { name: "科恰班巴市中心 (Centro de Cochabamba)", description: "玻利维亚的美食之都（Capital Gastronómica de Bolivia），拥有历史悠久的教堂、广场，以及美味的地方美食。" },
         { name: "圣安东尼奥教堂 (Santuario de San Antonio)", description: "科恰班巴著名的教堂，建筑风格独特，是当地重要的宗教场所。" },
-        { name: "科恰班巴基督像 (Cristo de la Concordia)", description: "另一座位于科恰班巴的基督雕像，规模更大，同样值得参观。" }
+        { name: "拉坎查市场 (La Cancha)", description: "南美洲最大的露天市场之一，您可以体验最地道的玻利维亚市井生活，购买手工艺品和品尝当地小吃。" }
       ]
     },
     gallery: { title: "照片集锦", viewMore: "在 Google Maps 查看更多相片" },
@@ -147,11 +164,11 @@ export const translations: Record<Locale, Translations> = {
     rating: { reviews: "reviews", source: "Google Reviews" },
     history: {
       title: "History & Construction",
-      intro: `The Christ of the Concord Monument (Monumento al Cristo de la Concordia) is located in Cochabamba, Bolivia. It is a magnificent religious sculpture symbolizing peace and unity.\n\n**Construction History**: This monument was built in the late 20th century, aiming to convey the message of peace, unity, and harmony. The sculpture vividly depicts Christ with open arms, symbolizing an embrace and blessing for all humanity.\n\n**Cultural Significance**: As an important religious and cultural landmark in Cochabamba, the Christ of the Concord Monument not only attracts many pilgrims but also serves as an important window for visitors to understand Bolivian religious art and culture.`
+      intro: `The Christ of the Concord Monument (Monumento al Cristo de la Concordia) is located in Cochabamba, Bolivia. It is a magnificent religious sculpture symbolizing peace and unity.\n\n**Construction History & Origins**: The monument was proposed to commemorate the visit of Pope John Paul II to Cochabamba in 1988. Designed by local sculptors César and Wálter Terrazas Pardo, it was completed in 1994. The sculpture vividly depicts Christ with open arms, symbolizing an embrace and blessing for all humanity.\n\n**World-Class Size Record**: This statue is not only the pride of Bolivia but also one of the largest Christ statues in the Southern Hemisphere. The main statue is 34.20 meters tall, and with its base, it reaches a total height of 40.44 meters, making it taller than the famous Christ the Redeemer (Cristo Redentor) in Rio de Janeiro.\n\n**Cultural Significance**: As an important religious and cultural landmark in Cochabamba, the Christ of the Concord Monument attracts many pilgrims and serves as an important window for visitors to understand Bolivian religious art and culture.`
     },
     curiosities: {
       title: "Hidden Stories: Artistic Value & Symbolic Meaning",
-      content: `**Artistic Style**: The Christ of the Concord Monument adopts a realistic sculpture style, Christ's image is solemn and benevolent, with exquisite detail carving, demonstrating a high level of sculpture art.\n\n**Symbolic Meaning**: The monument's name "Concordia" (harmony) reflects its core value—promoting understanding, respect, and harmonious coexistence among people of different cultures and faiths. The image of Christ with open arms conveys universal values of inclusion and love.\n\n**Visit Etiquette**: As a religious site, please maintain solemnity and quietness. Respect local religious customs, dress appropriately, and avoid loud noises.`
+      content: `**Internal Exploration**: You might not know that the statue is actually hollow! Visitors can climb the 1,399 spiral steps inside, reaching the viewing platforms in Christ's arms to enjoy a breathtaking panoramic view of the Cochabamba valley through lookout holes.\n\n**Artistic Style**: The Christ of the Concord Monument adopts a realistic sculpture style, Christ's image is solemn and benevolent, with exquisite detail carving.\n\n**Symbolic Meaning**: The monument's name "Concordia" (harmony) reflects its core value—promoting understanding, respect, and harmonious coexistence. The image of Christ with open arms conveys universal values of inclusion and love.\n\n**Visit Etiquette**: As a religious site, please maintain solemnity and quietness. Respect local religious customs, dress appropriately, and avoid loud noises.`
     },
     architecture: {
       title: "Sculpture Features & Artistic Structure",
