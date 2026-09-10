@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800" role="img" aria-labelledby="dibujoTitle">
+  <title id="dibujoTitle">Dibujo del Cristo de la Concordia — Cochabamba, Bolivia</title>
+  <desc>Línea de diseño (dibujo vectorial) del Monumento al Cristo de la Concordia: Cristo con los brazos abiertos sobre un globo terráqueo y un pedestal, en el cerro San Pedro.</desc>
+  <rect width="600" height="800" fill="#ffffff"/>
+  <g fill="none" stroke="#1f2937" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 远山（cerro San Pedro） -->
+    <path d="M10 500 Q90 428 176 500"/>
+    <path d="M424 500 Q510 428 590 500"/>
+    <!-- 光环 -->
+    <circle cx="300" cy="170" r="50" stroke-width="3" stroke-dasharray="6 10"/>
+    <!-- 头部 -->
+    <circle cx="300" cy="170" r="34" fill="#ffffff"/>
+    <path d="M286 162 q6 -5 12 0" stroke-width="3"/>
+    <path d="M302 162 q6 -5 12 0" stroke-width="3"/>
+    <path d="M300 178 q-9 11 0 18 q9 -7 0 -18" stroke-width="3"/>
+    <!-- 颈 -->
+    <path d="M288 202 L288 250 L312 250 L312 202 Z" fill="#ffffff"/>
+    <!-- 手臂 -->
+    <path d="M242 252 C182 256 122 264 80 282 L86 302 C128 288 188 282 244 280 Z" fill="#ffffff"/>
+    <path d="M358 252 C418 256 478 264 520 282 L514 302 C472 288 412 282 356 280 Z" fill="#ffffff"/>
+    <ellipse cx="74" cy="292" rx="15" ry="19" fill="#ffffff"/>
+    <ellipse cx="526" cy="292" rx="15" ry="19" fill="#ffffff"/>
+    <!-- 长袍 -->
+    <path d="M238 248 C226 300 210 400 206 500 L394 500 C390 400 374 300 362 248 C344 232 256 232 238 248 Z" fill="#ffffff"/>
+    <path d="M276 250 Q300 272 324 250" stroke-width="3"/>
+    <path d="M270 300 C268 380 266 440 264 498" stroke-width="3"/>
+    <path d="M330 300 C332 380 334 440 336 498" stroke-width="3"/>
+    <path d="M300 322 L300 498" stroke-width="3"/>
+    <!-- 地球仪 -->
+    <circle cx="300" cy="548" r="46" fill="#ffffff"/>
+    <path d="M258 540 q42 -18 84 0" stroke-width="3"/>
+    <path d="M256 560 q44 14 88 0" stroke-width="3"/>
+    <ellipse cx="300" cy="548" rx="18" ry="46" stroke-width="3"/>
+    <!-- 基座 -->
+    <rect x="250" y="594" width="100" height="16" fill="#ffffff"/>
+    <path d="M258 610 L342 610 L358 728 L242 728 Z" fill="#ffffff"/>
+    <path d="M266 642 L334 642" stroke-width="3"/>
+    <rect x="225" y="728" width="150" height="20" fill="#ffffff"/>
+    <rect x="205" y="748" width="190" height="16" fill="#ffffff"/>
+    <!-- 地面 -->
+    <path d="M150 764 L450 764" stroke-width="3"/>
+  </g>
+</svg>

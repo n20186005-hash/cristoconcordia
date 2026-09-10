@@ -2,74 +2,40 @@
 
 import React from "react";
 import { useLang } from "@/components/LangProvider";
+import { SITE_URL } from "@/lib/site-config";
 
+/**
+ * 常见问题（FAQPage）结构化数据。
+ *
+ * 说明：景点实体（TouristAttraction）的结构化数据统一由服务端
+ * `src/app/schema.ts` 的 generateSchema 输出（含 aggregateRating），
+ * 此处不再重复输出同名 @id 的实体，避免 Google 解析时出现冲突。
+ */
 export function StructuredData() {
   const { t, locale } = useLang();
 
-  const baseUrl = `https://${process.env.CURRENT_SITE_DOMAIN || "cristoconcordia.com"}`;
-
-  const touristAttractionSchema = {
-    "@context": "https://schema.org",
-    "@type": ["TouristAttraction", "Place", "LandmarksOrHistoricalBuildings"],
-    "name": locale === "es" ? "Monumento al Cristo de la Concordia" : locale === "zh" ? "和谐基督纪念碑" : locale === "qu" ? "Cristo de la Concordia" : "Christ of the Concord Monument",
-    "description": t.history.intro,
-    "url": `${baseUrl}/${locale}`,
-    "image": `${baseUrl}/gallery/christ-of-the-concord-monument (1).jpg`,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "reviewCount": "6724"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -17.3935,
-      "longitude": -66.1570
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "08:00",
-      "closes": "21:00"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Cochabamba",
-      "addressRegion": "Cochabamba",
-      "addressCountry": "BO"
-    }
-  };
+  const inLanguage =
+    locale === "es" ? "es-BO" : locale === "zh" ? "zh-CN" : locale === "qu" ? "qu-BO" : "en-US";
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": t.faq.items.map((item: any) => ({
+    "@id": `${SITE_URL}/${locale}/#faq`,
+    "inLanguage": inLanguage,
+    "mainEntity": t.faq.items.map((item: { question: string; answer: string }) => ({
       "@type": "Question",
       "name": item.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": item.answer
-      }
-    }))
+        "text": item.answer,
+      },
+    })),
   };
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
   );
 }

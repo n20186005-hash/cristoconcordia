@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Christ of the Concord Monument">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e1a" />
+      <stop offset="100%" stop-color="#2d5a27" />
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3f7a3a" />
+      <stop offset="100%" stop-color="#1a2e1a" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#sky)" />
+  <circle cx="368" cy="140" r="52" fill="#d4a574" opacity="0.9" />
+  <path d="M0 372 C 96 300 176 340 256 320 C 336 300 416 340 512 372 L512 512 L0 512 Z" fill="url(#hill)" />
+  <g fill="#f5f2ea">
+    <rect x="244" y="150" width="24" height="200" rx="6" />
+    <rect x="184" y="206" width="144" height="22" rx="8" />
+    <circle cx="256" cy="128" r="30" />
+    <path d="M214 300 h84 l-10 60 h-64 Z" />
+    <rect x="228" y="352" width="56" height="46" rx="4" fill="#d4a574" />
+  </g>
+</svg>

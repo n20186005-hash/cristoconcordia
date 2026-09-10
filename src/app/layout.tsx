@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import PwaRegister from "@/components/PwaRegister";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -23,6 +25,8 @@ export default function RootLayout({
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
+        <GoogleAnalytics />
+        <PwaRegister />
       </body>
     </html>
   );

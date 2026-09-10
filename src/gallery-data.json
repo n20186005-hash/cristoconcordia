@@ -1,22 +1,162 @@
 [
-  "/gallery/christ-of-the-concord-monument (1).jpg",
-  "/gallery/christ-of-the-concord-monument (2).jpg",
-  "/gallery/christ-of-the-concord-monument (3).jpg",
-  "/gallery/christ-of-the-concord-monument (4).jpg",
-  "/gallery/christ-of-the-concord-monument (5).jpg",
-  "/gallery/christ-of-the-concord-monument (6).jpg",
-  "/gallery/christ-of-the-concord-monument (7).jpg",
-  "/gallery/christ-of-the-concord-monument (8).jpg",
-  "/gallery/christ-of-the-concord-monument (9).jpg",
-  "/gallery/christ-of-the-concord-monument (10).jpg",
-  "/gallery/christ-of-the-concord-monument (11).jpg",
-  "/gallery/christ-of-the-concord-monument (12).jpg",
-  "/gallery/christ-of-the-concord-monument (13).jpg",
-  "/gallery/christ-of-the-concord-monument (14).jpg",
-  "/gallery/christ-of-the-concord-monument (15).jpg",
-  "/gallery/christ-of-the-concord-monument (16).jpg",
-  "/gallery/christ-of-the-concord-monument (17).jpg",
-  "/gallery/christ-of-the-concord-monument (18).jpg",
-  "/gallery/christ-of-the-concord-monument (19).jpg",
-  "/gallery/christ-of-the-concord-monument (20).jpg"
+  {
+    "src": "/gallery/christ-of-the-concord-monument (1).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (1).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (1)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (1)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (2).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (2).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (2)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (2)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (3).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (3).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (3)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (3)-thumb.webp",
+    "width": 1080,
+    "height": 1278
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (4).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (4).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (4)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (4)-thumb.webp",
+    "width": 1800,
+    "height": 900
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (5).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (5).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (5)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (5)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (6).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (6).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (6)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (6)-thumb.webp",
+    "width": 1800,
+    "height": 2400
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (7).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (7).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (7)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (7)-thumb.webp",
+    "width": 1800,
+    "height": 1010
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (8).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (8).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (8)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (8)-thumb.webp",
+    "width": 1800,
+    "height": 3905
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (9).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (9).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (9)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (9)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (10).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (10).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (10)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (10)-thumb.webp",
+    "width": 1800,
+    "height": 2400
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (11).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (11).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (11)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (11)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (12).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (12).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (12)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (12)-thumb.webp",
+    "width": 1800,
+    "height": 3200
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (13).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (13).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (13)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (13)-thumb.webp",
+    "width": 1800,
+    "height": 2400
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (14).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (14).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (14)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (14)-thumb.webp",
+    "width": 1800,
+    "height": 3200
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (15).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (15).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (15)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (15)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (16).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (16).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (16)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (16)-thumb.webp",
+    "width": 1800,
+    "height": 1355
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (17).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (17).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (17)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (17)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (18).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (18).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (18)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (18)-thumb.webp",
+    "width": 1800,
+    "height": 1350
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (19).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (19).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (19)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (19)-thumb.webp",
+    "width": 1536,
+    "height": 2048
+  },
+  {
+    "src": "/gallery/christ-of-the-concord-monument (20).jpg",
+    "webp": "/gallery/christ-of-the-concord-monument (20).webp",
+    "thumbSrc": "/gallery/christ-of-the-concord-monument (20)-thumb.jpg",
+    "thumbWebp": "/gallery/christ-of-the-concord-monument (20)-thumb.webp",
+    "width": 1536,
+    "height": 2048
+  }
 ]

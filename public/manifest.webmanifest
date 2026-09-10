@@ -1,0 +1,41 @@
+{
+  "name": "Christ of the Concord Monument — Visitor Guide",
+  "short_name": "Cristo Concordia",
+  "description": "Comprehensive visitor guide to the Christ of the Concord Monument (Monumento al Cristo de la Concordia) in Cochabamba, Bolivia.",
+  "id": "/",
+  "start_url": "/es",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf8f5",
+  "theme_color": "#1a2e1a",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": ["travel", "education", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Location Map",
+      "short_name": "Map",
+      "url": "/es#location"
+    },
+    {
+      "name": "Photo Gallery",
+      "short_name": "Gallery",
+      "url": "/es#gallery"
+    }
+  ]
+}

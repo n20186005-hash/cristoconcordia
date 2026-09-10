@@ -5,15 +5,17 @@ import Link from "next/link";
 import { LangProvider, useLang } from "@/components/LangProvider";
 import { useTheme } from "next-themes";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { WeatherWidget } from "@/components/WeatherWidget";
+import { WeatherSection } from "@/components/WeatherSection";
 import { StructuredData } from "@/components/StructuredData";
 import galleryImagesData from "@/gallery-data.json";
+import { ENTITY } from "@/lib/site-config";
 
 // Temporary: using minimal translations for build
 // import { translations } from "@/i18n/translations";
 // TODO: Restore full translations after completing all language updates
 
-const MAPS_URL = "https://maps.app.goo.gl/J9HMnLUeamBGn2co8";
+const MAPS_URL = ENTITY.mapsShareUrl;
+const OFFICIAL_TOURISM_URL = ENTITY.govtTourismUrl;
 
 const GOOGLE_REVIEWS = [
   { name: "María G.", avatar: "MG", rating: 5, date: "2025-02-10", text: "El Cristo de la Concordia es impresionante. La vista desde la base es espectacular y la estatua es una obra maestra del arte religioso." },
@@ -96,18 +98,25 @@ function Nav() {
   }, []);
   return (
     <nav className={`site-nav ${scrolled ? "scrolled" : ""}`}>
-      <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-        <span style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 700, color: "#fff" }}>
-          Cristo de la Concordia
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.1rem" }}>
+        <span style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: 700, color: "#fff", lineHeight: 1.1 }}>
+          {ENTITY.shortName}
+        </span>
+        <span className="nav-brand-fullname" style={{ fontFamily: "var(--font-body)", fontSize: "0.62rem", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>
+          {ENTITY.fullName} · {ENTITY.city}, {ENTITY.country}
         </span>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
         <div className="nav-links">
+          <a href="#about">{t.entity.label}</a>
           <a href="#history">{t.nav.history}</a>
+          <a href="#stories">{t.nav.stories}</a>
           <a href="#architecture">{t.nav.architecture}</a>
           <a href="#monuments">{t.nav.monuments}</a>
           <a href="#visiting">{t.nav.visiting}</a>
+          <a href="#amenities">{t.nav.amenities}</a>
           <a href="#transportation">{t.nav.transportation}</a>
+          <a href="#recorrido">{t.nav.recorrido}</a>
           <a href="#gallery">{t.nav.gallery}</a>
           <a href="#reviews">{t.nav.reviews}</a>
           <a href="#faq">{t.nav.faq}</a>
@@ -129,7 +138,13 @@ function Hero() {
       <div className="hero-overlay" />
       <div className="hero-content">
         <p className="hero-tagline">{t.hero.tagline}</p>
-        <h1 className="hero-title">{t.hero.title}</h1>
+        <h1 className="hero-title">
+          {t.hero.title}
+          <span className="hero-title-city"> ({t.hero.city})</span>
+        </h1>
+        <p className="hero-official-name">
+          {ENTITY.fullName} · {ENTITY.city}, {ENTITY.province}, {ENTITY.country}
+        </p>
         <p className="hero-subtitle">{t.hero.subtitle}</p>
         <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", justifyContent: "center", marginBottom: "1.5rem" }}>
           {t.hero.tags?.map((tag: string, i: number) => (
@@ -172,9 +187,52 @@ function Hero() {
         <div className="hero-meta">
           <div className="hero-rating">4.5</div>
           <div className="hero-stars">★ ★ ★ ★ ★</div>
-          <div className="hero-reviews">6,724 {t.rating.reviews} · {t.rating.source}</div>
+          <div className="hero-reviews">{ENTITY.reviewCount.toLocaleString("en-US")} {t.rating.reviews} · {t.rating.source}</div>
         </div>
       </a>
+    </section>
+  );
+}
+
+function EntitySection() {
+  const { t } = useLang();
+  // 地理面包屑与归属层级：{{ATTRACTION_FULL_NAME}} → {{CITY_NAME}} → {{STATE_PROVINCE}} → {{COUNTRY_NAME}}
+  const breadcrumb = [ENTITY.fullName, ENTITY.city, ENTITY.province, ENTITY.country];
+
+  return (
+    <section id="about" className="section">
+      <ScrollReveal>
+        <p className="section-label">{t.entity.label}</p>
+        <h2 className="section-title">{t.entity.title}</h2>
+        <div className="section-divider" />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <p className="about-text" style={{ whiteSpace: "pre-line", marginBottom: "2rem" }}>
+          {renderText(t.entity.intro)}
+        </p>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <nav aria-label="Breadcrumb" className="entity-breadcrumb">
+          <span className="entity-breadcrumb-label">{t.entity.breadcrumbTitle}</span>
+          {breadcrumb.map((item, i) => (
+            <span key={i} className="entity-breadcrumb-item">
+              {i > 0 && <span className="entity-breadcrumb-sep" aria-hidden="true">→</span>}
+              <span className={i === 0 ? "entity-breadcrumb-primary" : ""}>{item}</span>
+            </span>
+          ))}
+        </nav>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="entity-nearby">
+          <h3 className="entity-nearby-title">{t.entity.nearbyTitle}</h3>
+          <p className="about-text" style={{ marginBottom: 0, whiteSpace: "pre-line" }}>
+            {renderText(t.entity.nearby)}
+          </p>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }
@@ -226,13 +284,152 @@ function History() {
   );
 }
 
+function Recorrido() {
+  const { t } = useLang();
+
+  return (
+    <section id="recorrido" className="section" style={{ background: "rgba(0,0,0,0.02)" }}>
+      <ScrollReveal>
+        <p className="section-label">{t.recorrido.label}</p>
+        <h2 className="section-title">{t.recorrido.title}</h2>
+        <div className="section-divider" />
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <p className="about-text" style={{ marginBottom: "2.5rem" }}>{renderText(t.recorrido.intro)}</p>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <h3 className="recorrido-subtitle">{t.recorrido.stationsTitle}</h3>
+        <ol className="via-crucis-list">
+          {t.recorrido.stations.map((s: string, i: number) => (
+            <li className="via-crucis-item" key={i}>
+              <span className="via-crucis-num">{String(i + 1).padStart(2, "0")}</span>
+              <span className="via-crucis-name">{s}</span>
+            </li>
+          ))}
+        </ol>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="via-crucis-sepulcro">
+          <h4 className="via-crucis-sepulcro-title">✦ {t.recorrido.sepulcroTitle}</h4>
+          <p>{renderText(t.recorrido.sepulcroNote)}</p>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <h3 className="recorrido-subtitle">{t.recorrido.caminoTitle}</h3>
+        <p className="about-text" style={{ marginBottom: "2.5rem" }}>{renderText(t.recorrido.camino)}</p>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <h3 className="recorrido-subtitle">{t.recorrido.routesTitle}</h3>
+        <div className="recorrido-routes">
+          {t.recorrido.routes.map((r, i: number) => (
+            <div className="recorrido-route-card" key={i}>
+              <h4 className="recorrido-route-name">{r.name}</h4>
+              <div className="recorrido-route-meta">{r.meta}</div>
+              <p className="recorrido-route-desc">{renderText(r.description)}</p>
+              <div className="recorrido-route-best">{r.bestFor}</div>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="bring-section" style={{ marginTop: "3rem" }}>
+          <div className="bring-title">{t.recorrido.tipsTitle}</div>
+          <ul className="bring-list">
+            {t.recorrido.tips.map((tip: string, i: number) => (
+              <li key={i}>{renderText(tip)}</li>
+            ))}
+          </ul>
+        </div>
+      </ScrollReveal>
+    </section>
+  );
+}
+
+function Stories() {
+  const { t } = useLang();
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  return (
+    <section id="stories" className="section" style={{ background: "rgba(0,0,0,0.02)" }}>
+      <ScrollReveal>
+        <p className="section-label">02</p>
+        <h2 className="section-title">{t.stories.title}</h2>
+        <div className="section-divider" />
+      </ScrollReveal>
+      <ScrollReveal>
+        <p className="about-text" style={{ marginBottom: "2.5rem" }}>{renderText(t.stories.intro)}</p>
+      </ScrollReveal>
+      <ScrollReveal>
+        <div className="stories-list">
+          {t.stories.items.map((item, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div className={`story-item${isOpen ? " expanded" : ""}`} key={i}>
+                <button
+                  type="button"
+                  className="story-question"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                >
+                  <span className="story-index">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="story-title">{item.title}</span>
+                  <span className="story-toggle" aria-hidden="true">{isOpen ? "−" : "+"}</span>
+                </button>
+                {isOpen && <div className="story-answer">{renderText(item.content)}</div>}
+              </div>
+            );
+          })}
+        </div>
+      </ScrollReveal>
+    </section>
+  );
+}
+
+function Amenities() {
+  const { t } = useLang();
+
+  return (
+    <section id="amenities" className="section">
+      <ScrollReveal>
+        <p className="section-label">08</p>
+        <h2 className="section-title">{t.amenities.title}</h2>
+        <div className="section-divider" />
+      </ScrollReveal>
+      <ScrollReveal>
+        <p className="about-text" style={{ marginBottom: "1.5rem" }}>{renderText(t.amenities.intro)}</p>
+      </ScrollReveal>
+      <ScrollReveal>
+        <p className="amenities-disclaimer">⚖️ {renderText(t.amenities.disclaimer)}</p>
+      </ScrollReveal>
+      <ScrollReveal>
+        <div className="amenities-grid">
+          {t.amenities.items.map((item, i) => (
+            <div className="amenity-card" key={i}>
+              <div className="amenity-icon" aria-hidden="true">{item.icon}</div>
+              <h3 className="amenity-title">{item.title}</h3>
+              <p className="amenity-desc">{renderText(item.description)}</p>
+              <p className="amenity-tip">💡 {renderText(item.tip)}</p>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+    </section>
+  );
+}
+
 function Architecture() {
   const { t } = useLang();
   
   return (
     <section id="architecture" className="section" style={{ background: "rgba(0,0,0,0.02)" }}>
       <ScrollReveal>
-        <p className="section-label">02</p>
+        <p className="section-label">03</p>
         <h2 className="section-title">{t.architecture.title}</h2>
         <div className="section-divider" />
       </ScrollReveal>
@@ -279,7 +476,7 @@ function Monuments() {
   return (
     <section id="monuments" className="section">
       <ScrollReveal>
-        <p className="section-label">03</p>
+        <p className="section-label">04</p>
         <h2 className="section-title">{t.monuments.title}</h2>
         <div className="section-divider" />
       </ScrollReveal>
@@ -312,7 +509,7 @@ function TimeSpaceContrast() {
   return (
     <section className="section" style={{ background: "var(--color-cream)" }}>
       <ScrollReveal>
-        <p className="section-label">04</p>
+        <p className="section-label">05</p>
         <h2 className="section-title">{t.contrast.title}</h2>
         <div className="section-divider" />
       </ScrollReveal>
@@ -364,13 +561,13 @@ function TimeSpaceContrast() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
           <div>
             <div style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.1)", marginBottom: "1rem" }}>
-              <img src="/gallery/christ-of-the-concord-monument (2).jpg" alt="Construction view" style={{ width: "100%", height: "auto", display: "block", filter: "grayscale(100%) sepia(20%)" }} />
+              <img src="/gallery/christ-of-the-concord-monument (2).jpg" alt={`${ENTITY.fullName} under construction, ${ENTITY.city}, ${ENTITY.country}`} loading="lazy" style={{ width: "100%", height: "auto", display: "block", filter: "grayscale(100%) sepia(20%)" }} />
             </div>
             <p style={{ textAlign: "center", fontSize: "0.95rem", color: "var(--color-earth-soft)", fontWeight: 600 }}>{t.contrast.before}</p>
           </div>
           <div>
             <div style={{ borderRadius: "8px", overflow: "hidden", border: "1px solid rgba(0,0,0,0.1)", marginBottom: "1rem" }}>
-              <img src="/gallery/christ-of-the-concord-monument (1).jpg" alt="Today" style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src="/gallery/christ-of-the-concord-monument (1).jpg" alt={`${ENTITY.fullName} - Main view in ${ENTITY.city}, ${ENTITY.country}`} loading="lazy" style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
             <p style={{ textAlign: "center", fontSize: "0.95rem", color: "var(--color-earth-soft)", fontWeight: 600 }}>{t.contrast.after}</p>
           </div>
@@ -392,7 +589,7 @@ function Visiting() {
     <section id="visiting" style={{ background: "linear-gradient(180deg, var(--color-cream) 0%, #eee8dd 100%)" }}>
       <div className="section">
         <ScrollReveal>
-          <p className="section-label">05</p>
+          <p className="section-label">06</p>
           <h2 className="section-title">{t.visiting.title}</h2>
           <div className="section-divider" />
         </ScrollReveal>
@@ -425,7 +622,7 @@ function Visiting() {
           </div>
         </ScrollReveal>
         <ScrollReveal>
-          <WeatherWidget />
+          <WeatherSection />
         </ScrollReveal>
       </div>
     </section>
@@ -461,7 +658,7 @@ function Transportation() {
   return (
     <section id="transportation" className="section">
       <ScrollReveal>
-        <p className="section-label">06</p>
+        <p className="section-label">07</p>
         <h2 className="section-title">{t.transportation.title}</h2>
         <div className="section-divider" />
       </ScrollReveal>
@@ -544,11 +741,28 @@ function Transportation() {
 function Gallery() {
   const { t, locale } = useLang();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const galleryImages = galleryImagesData.map((src: string) => ({
-    src,
-    caption: {} as Record<string, string>,
-    story: {} as Record<string, string>,
-  }));
+  const galleryImages = galleryImagesData.map(
+    (
+      img: { src: string; webp?: string; thumbSrc?: string; thumbWebp?: string; width?: number; height?: number } | string
+    ) => {
+      const src = typeof img === "string" ? img : img.src;
+      const webp = typeof img === "string" ? undefined : img.webp;
+      const thumbSrc = typeof img === "string" ? img : img.thumbSrc || img.src;
+      const thumbWebp = typeof img === "string" ? undefined : img.thumbWebp;
+      const width = typeof img === "string" ? undefined : img.width;
+      const height = typeof img === "string" ? undefined : img.height;
+      return {
+        src,
+        webp,
+        thumbSrc,
+        thumbWebp,
+        width,
+        height,
+        caption: {} as Record<string, string>,
+        story: {} as Record<string, string>,
+      };
+    }
+  );
 
   useEffect(() => {
     if (lightboxIndex !== null && galleryImages.length > 0) {
@@ -566,10 +780,31 @@ function Gallery() {
   const currentCaption = currentImage?.caption?.[locale] || "";
   const currentStory = currentImage?.story?.[locale] || "";
 
+  // 图片 Alt 按语言给出关键词丰富的描述，未设置 caption 时生效
+  const photoAlt = (idx: number): string => {
+    const base =
+      locale === "es"
+        ? `${ENTITY.fullNameEs} en ${ENTITY.city}, Bolivia`
+        : locale === "zh"
+        ? `和谐基督纪念碑 - 玻利维亚${ENTITY.city}`
+        : locale === "qu"
+        ? `Cristo de la Concordia, ${ENTITY.city}, Bolivia`
+        : `${ENTITY.fullName} in ${ENTITY.city}, Bolivia`;
+    const suffix =
+      locale === "es"
+        ? `foto ${idx + 1}`
+        : locale === "zh"
+        ? `照片 ${idx + 1}`
+        : locale === "qu"
+        ? `rikuy ${idx + 1}`
+        : `photo ${idx + 1}`;
+    return `${base} - ${suffix}`;
+  };
+
   return (
     <section id="gallery" className="section">
       <ScrollReveal>
-        <p className="section-label">07</p>
+        <p className="section-label">09</p>
         <h2 className="section-title">{t.gallery.title}</h2>
         <div className="section-divider" />
       </ScrollReveal>
@@ -577,7 +812,17 @@ function Gallery() {
         <div className="gallery-grid">
           {galleryImages.map((item, i) => (
             <div className="gallery-item" key={i} onClick={() => setLightboxIndex(i)}>
-              <img src={item.src} alt={item.caption?.[locale] || `Gallery image ${i + 1}`} loading="lazy" />
+              <picture>
+                {item.thumbWebp && <source srcSet={item.thumbWebp} type="image/webp" />}
+                <img
+                  src={item.thumbSrc}
+                  width={item.width}
+                  height={item.height}
+                  alt={item.caption?.[locale] || photoAlt(i)}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               {item.caption && (
                 <div className="gallery-caption-overlay">
                   <p className="gallery-caption-text">{item.caption[locale] || item.caption.en || ""}</p>
@@ -586,6 +831,26 @@ function Gallery() {
             </div>
           ))}
         </div>
+      </ScrollReveal>
+      <ScrollReveal>
+        <figure className="gallery-dibujo">
+          <div className="gallery-dibujo-header">
+            <span aria-hidden="true">✏️</span> {t.gallery.drawingTitle}
+          </div>
+          <div className="gallery-dibujo-media">
+            <img
+              src="/cristo-de-la-concordia-dibujo.png"
+              alt={t.gallery.drawingAlt}
+              width={600}
+              height={800}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption className="gallery-dibujo-caption">
+            {t.gallery.drawingCaption}
+          </figcaption>
+        </figure>
       </ScrollReveal>
       <ScrollReveal>
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
@@ -601,7 +866,17 @@ function Gallery() {
         <div className="lightbox" onClick={() => setLightboxIndex(null)}>
           <button className="lightbox-close" onClick={() => setLightboxIndex(null)}>×</button>
           <button className="lightbox-prev" onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + galleryImages.length) % galleryImages.length); }}>‹</button>
-          <img src={galleryImages[lightboxIndex].src} alt={currentCaption || `Gallery image ${lightboxIndex + 1}`} className="lightbox-img" />
+          <picture>
+            {galleryImages[lightboxIndex].webp && (
+              <source srcSet={galleryImages[lightboxIndex].webp} type="image/webp" />
+            )}
+            <img
+              src={galleryImages[lightboxIndex].src}
+              alt={currentCaption || photoAlt(lightboxIndex)}
+              className="lightbox-img"
+              decoding="async"
+            />
+          </picture>
           <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % galleryImages.length); }}>›</button>
           {(currentCaption || currentStory) && (
             <div className="lightbox-info">
@@ -627,7 +902,7 @@ function Reviews() {
   return (
     <section id="reviews" className="section" style={{ background: "linear-gradient(180deg, var(--color-cream) 0%, #e8e2d6 100%)" }}>
       <ScrollReveal>
-        <p className="section-label">08</p>
+        <p className="section-label">10</p>
         <h2 className="section-title">{t.reviews.title}</h2>
         <p className="section-subtitle">{t.reviews.subtitle}</p>
         <div className="section-divider" />
@@ -701,7 +976,7 @@ function FAQ() {
     <section id="faq" className="section">
       <div className="section">
         <ScrollReveal>
-        <p className="section-label">09</p>
+        <p className="section-label">11</p>
         <h2 className="section-title">{t.faq.title}</h2>
           <p className="section-subtitle">{t.faq.subtitle}</p>
           <div className="section-divider" />
@@ -748,33 +1023,90 @@ function Location() {
   return (
     <section id="location" className="section">
       <ScrollReveal>
-        <p className="section-label">10</p>
+        <p className="section-label">12</p>
         <h2 className="section-title">{t.location.title}</h2>
         <div className="section-divider" />
       </ScrollReveal>
       <ScrollReveal>
         <div className="location-section">
-          <div className="location-map-container">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.366432372696!2d-66.1570!3d-17.3935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9355a5a5a5a5a5a5%3A0xa5a5a5a5a5a5a5a5!2sCristo%20de%20la%20Concordia%2C%20Cochabamba!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-              width="800"
-              height="600"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Christ of the Concord Monument Location Map"
-            />
-          </div>
-          <div className="location-info">
-            <p className="location-address">{t.location.address}</p>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="maps-link">
+          <div className="location-map-wrapper">
+            <div className="location-map-container">
+              <iframe
+                src={ENTITY.mapsEmbedSrc}
+                width="800"
+                height="600"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title={`${ENTITY.fullName} Location Map — ${ENTITY.city}, ${ENTITY.country}`}
+              />
+            </div>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-btn maps-btn-fullwidth"
+            >
               {t.location.openMaps}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M7 17L17 7M17 7H7M17 7V17" />
               </svg>
             </a>
           </div>
+          <div className="location-info">
+            <p className="location-address">{t.location.address}</p>
+            <p className="location-how-to-visit">{t.location.howToVisit}</p>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="maps-link">
+              {t.location.openMaps}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </a>
+            <p className="location-official">
+              {t.location.officialText}{" "}
+              <a href={OFFICIAL_TOURISM_URL} target="_blank" rel="noopener noreferrer">
+                {t.location.officialLinkText}
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </ScrollReveal>
+    </section>
+  );
+}
+
+function SourcesSection() {
+  const { t } = useLang();
+  return (
+    <section id="sources" className="section" style={{ background: "rgba(0,0,0,0.02)" }}>
+      <ScrollReveal>
+        <p className="section-label">13</p>
+        <h2 className="section-title">{t.sources.title}</h2>
+        <div className="section-divider" />
+        <p className="about-text" style={{ marginBottom: "2rem" }}>{t.sources.intro}</p>
+      </ScrollReveal>
+      <ScrollReveal>
+        <div style={{ display: "grid", gap: "1.25rem", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
+          {t.sources.items.map((item, i) => (
+            <a
+              key={i}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="source-card"
+            >
+              <h3 className="source-card-title">{item.name}</h3>
+              <p className="source-card-desc">{item.description}</p>
+              <span className="source-card-link">
+                {item.url.replace(/^https?:\/\//, "").split("/")[0]}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
+            </a>
+          ))}
         </div>
       </ScrollReveal>
     </section>
@@ -785,6 +1117,21 @@ function Footer() {
   const { t } = useLang();
   return (
     <footer className="site-footer">
+      <div className="footer-nap">
+        <p className="footer-nap-name">{ENTITY.fullName}</p>
+        <p className="footer-nap-alt">{ENTITY.fullNameEs} · {ENTITY.shortName}</p>
+        <address className="footer-nap-address">
+          {ENTITY.streetAddress}, {ENTITY.city}, {ENTITY.province} {ENTITY.postalCode}, {ENTITY.country}
+        </address>
+        <a
+          className="footer-nap-map"
+          href={MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {ENTITY.latitude}, {ENTITY.longitude}
+        </a>
+      </div>
       <div className="footer-links">
         <p className="footer-links-title">{t.footer.linksTitle}</p>
         <div className="footer-links-grid">
@@ -810,6 +1157,7 @@ function Footer() {
         {t.footer.callToAction}
       </p>
       <p className="footer-text" style={{ marginTop: "1rem", whiteSpace: "pre-line" }}>{t.footer.text}</p>
+      <p className="footer-copyright">{t.footer.imageCopyright}</p>
     </footer>
   );
 }
@@ -821,16 +1169,21 @@ export default function Home(props: { params: Promise<{ locale: string }> }) {
       <StructuredData />
       <Nav />
       <Hero />
+      <EntitySection />
       <History />
+      <Recorrido />
+      <Stories />
       <Architecture />
       <Monuments />
       <TimeSpaceContrast />
       <Visiting />
       <Transportation />
+      <Amenities />
       <Gallery />
       <Reviews />
       <FAQ />
       <Location />
+      <SourcesSection />
       <Footer />
     </LangProvider>
   );

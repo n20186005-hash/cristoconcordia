@@ -10,6 +10,11 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: [],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
       },
       {
         userAgent: 'Googlebot-Image',
@@ -17,5 +22,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }
