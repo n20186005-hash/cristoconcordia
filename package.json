@@ -10,7 +10,9 @@
     "postbuild": "node scripts/fix-html-lang.js",
     "start": "next start",
     "lint": "eslint",
-    "optimize:images": "node scripts/optimize-images.js"
+    "optimize:images": "node scripts/optimize-images.js",
+    "deploy": "npx wrangler deploy",
+    "preview": "npx wrangler dev"
   },
   "dependencies": {
     "next": "16.2.9",
